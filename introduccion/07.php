@@ -41,8 +41,9 @@ $karen = new Empleado(
     4321
 );
 
-echo $juan->nombreCompleto();
-echo $karen->nombreCompleto();
+echo "<p>", $juan->nombreCompleto(), "</p>";
+echo "<p>", $karen->nombreCompleto(), "</p>";
+
 
 
 
