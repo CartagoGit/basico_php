@@ -20,6 +20,11 @@ class Empleado
         $this->codigo = $codigo;
         $this->departamento = $departamento;
     }
+
+    public function mostrarInformacion(): void
+    {
+        echo "Nombre: {$this->nombre} <br>Apellido: {$this->apellido}<br>Email: {$this->email}";
+    }
 }
 
 
@@ -39,6 +44,11 @@ class Proveedor
         $this->email = $email;
         $this->telefono = $telefono;
         $this->empresa = $empresa;
+    }
+
+    public function mostrarInformacion(): void
+    {
+        echo "Nombre: {$this->nombre} <br>Apellido: {$this->apellido}<br>Email: {$this->email}";
     }
 }
 $empleado = new Empleado(
@@ -65,3 +75,9 @@ echo "</pre>";
 echo "<pre>";
 var_dump($proveedor);
 echo "</pre>";
+// echo "<pre>".var_dump($proveedor)."</pre>"; //!! esto falla porque var_dump() no devuelve un valor asignable
+
+// Mostrar información
+$empleado->mostrarInformacion();
+echo "<hr>";
+$proveedor->mostrarInformacion();
