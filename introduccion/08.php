@@ -83,6 +83,10 @@ echo '</pre>';
 // print_r($juan->getPropsSegunTipo('juanito'));
 // echo '</pre>';
 
+// echo 'Esto es deberia dar error <hr><pre>';
+// print_r($juan->getPropsSegunTipo(95));
+// echo '</pre>';
+
 // echo "<pre>";
 // var_dump($juan);
 // echo "</pre>";
