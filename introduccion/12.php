@@ -10,8 +10,17 @@ class Empleado
     public string $email;
     public int $codigo;
 
+    public static $propiedadEstatica = 'Propiedad estatica';
+
+    public static function getPropiedadEstatica(): string
+    {
+        return self::$propiedadEstatica;
+    }
+
     public function __construct($nombre, $apellido, $departamento, $email, $codigo)
     {
+        //* Si nombre fuera estatico podriamos asignarselo en el constructor de la siguiente manera ->
+        // self::$nombre = $nombre;
         $this->nombre = $nombre;
         $this->apellido = $apellido;
         $this->departamento = $departamento;
@@ -112,3 +121,10 @@ echo '<br>';
 echo "Deberian ser todas las propiedades: <br>";
 var_dump(Empleado::getKeyPropsSegunTipo());
 echo '</pre>';
+
+echo `<pre>`;
+echo Empleado::getPropiedadEstatica();
+echo `</pre>`;
+
+echo '<br>';
+echo Empleado::$propiedadEstatica;
