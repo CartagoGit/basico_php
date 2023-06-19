@@ -21,6 +21,11 @@ class Persona
     {
         echo "Nombre: {$this->nombre} <br>Apellido: {$this->apellido}<br>Email: {$this->email}";
     }
+
+    public function getTelefono(): int
+    {
+        return $this->telefono;
+    }
 }
 
 class Empleado extends Persona
@@ -61,7 +66,7 @@ $proveedor = new Proveedor(
     "Karen",
     "Gonzalez",
     "cualquiera@proveedor.com",
-    123456789,
+    987654321,
     'Facebook'
 );
 
@@ -78,3 +83,5 @@ echo "</pre>";
 $empleado->mostrarInformacion();
 echo "<hr>";
 $proveedor->mostrarInformacion();
+echo "<hr>";
+echo $empleado->getTelefono() . "<br>" . $proveedor->getTelefono();
