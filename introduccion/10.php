@@ -2,23 +2,19 @@
 include 'includes/header.php';
 
 // HERENCIA
-class Empleado
+class Persona
 {
     protected $nombre;
     protected $apellido;
     protected $email;
     protected $telefono;
-    protected $codigo;
-    protected $departamento;
 
-    public function __construct($nombre, $apellido, $email, $telefono, $codigo, $departamento)
+    public function __construct($nombre, $apellido, $email, $telefono)
     {
         $this->nombre = $nombre;
         $this->apellido = $apellido;
         $this->email = $email;
         $this->telefono = $telefono;
-        $this->codigo = $codigo;
-        $this->departamento = $departamento;
     }
 
     public function mostrarInformacion(): void
@@ -27,28 +23,29 @@ class Empleado
     }
 }
 
-
-class Proveedor
+class Empleado extends Persona
 {
-    protected $nombre;
-    protected $apellido;
-    protected $email;
-    protected $telefono;
-    protected $empresa;
 
+    protected $codigo;
+    protected $departamento;
+
+    public function __construct($nombre, $apellido, $email, $telefono, $codigo, $departamento)
+    {
+        parent::__construct($nombre, $apellido, $email, $telefono);
+        $this->codigo = $codigo;
+        $this->departamento = $departamento;
+    }
+}
+
+
+class Proveedor extends Persona
+{
+    protected $empresa;
 
     public function __construct($nombre, $apellido, $email, $telefono, $empresa)
     {
-        $this->nombre = $nombre;
-        $this->apellido = $apellido;
-        $this->email = $email;
-        $this->telefono = $telefono;
+        parent::__construct($nombre, $apellido, $email, $telefono);
         $this->empresa = $empresa;
-    }
-
-    public function mostrarInformacion(): void
-    {
-        echo "Nombre: {$this->nombre} <br>Apellido: {$this->apellido}<br>Email: {$this->email}";
     }
 }
 $empleado = new Empleado(
@@ -63,7 +60,7 @@ $empleado = new Empleado(
 $proveedor = new Proveedor(
     "Karen",
     "Gonzalez",
-    "cualquiera@empresa.com",
+    "cualquiera@proveedor.com",
     123456789,
     'Facebook'
 );
